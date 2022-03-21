@@ -6,6 +6,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "CBTrueToneClient.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 

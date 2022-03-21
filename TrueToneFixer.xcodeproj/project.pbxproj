@@ -11,6 +11,7 @@
 		5586070527E64A5B009AFFBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5586070427E64A5B009AFFBA /* Assets.xcassets */; };
 		5586070827E64A5B009AFFBA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5586070627E64A5B009AFFBA /* MainMenu.xib */; };
 		5586070A27E64A5B009AFFBA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5586070927E64A5B009AFFBA /* main.m */; };
+		5586072327E656CE009AFFBA /* CoreBrightness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5586071327E651D1009AFFBA /* CoreBrightness.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,10 @@
 		5586070727E64A5B009AFFBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5586070927E64A5B009AFFBA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5586070B27E64A5B009AFFBA /* TrueToneFixer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TrueToneFixer.entitlements; sourceTree = "<group>"; };
+		5586071127E64AA0009AFFBA /* CBTrueToneClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBTrueToneClient.h; sourceTree = "<group>"; };
+		5586071327E651D1009AFFBA /* CoreBrightness.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBrightness.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/PrivateFrameworks/CoreBrightness.framework; sourceTree = DEVELOPER_DIR; };
+		5586071827E65332009AFFBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5586072427E7EBFA009AFFBA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5586072327E656CE009AFFBA /* CoreBrightness.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,8 +43,10 @@
 		558606F527E64A59009AFFBA = {
 			isa = PBXGroup;
 			children = (
+				5586072427E7EBFA009AFFBA /* README.md */,
 				5586070027E64A59009AFFBA /* TrueToneFixer */,
 				558606FF27E64A59009AFFBA /* Products */,
+				5586071227E651D1009AFFBA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,7 +61,9 @@
 		5586070027E64A59009AFFBA /* TrueToneFixer */ = {
 			isa = PBXGroup;
 			children = (
+				5586071827E65332009AFFBA /* Info.plist */,
 				5586070127E64A59009AFFBA /* AppDelegate.h */,
+				5586071127E64AA0009AFFBA /* CBTrueToneClient.h */,
 				5586070227E64A59009AFFBA /* AppDelegate.m */,
 				5586070427E64A5B009AFFBA /* Assets.xcassets */,
 				5586070627E64A5B009AFFBA /* MainMenu.xib */,
@@ -61,6 +71,14 @@
 				5586070B27E64A5B009AFFBA /* TrueToneFixer.entitlements */,
 			);
 			path = TrueToneFixer;
+			sourceTree = "<group>";
+		};
+		5586071227E651D1009AFFBA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5586071327E651D1009AFFBA /* CoreBrightness.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,7 +219,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -253,7 +271,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -269,9 +287,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2822CN79AE;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TrueToneFixer/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -279,8 +303,9 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.quizzicaltherapy.TrueToneFixer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gwhobbs.TrueToneFixer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
@@ -295,9 +320,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2822CN79AE;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TrueToneFixer/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -305,8 +336,9 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.quizzicaltherapy.TrueToneFixer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gwhobbs.TrueToneFixer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
