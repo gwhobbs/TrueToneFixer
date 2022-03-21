@@ -4,4 +4,4 @@ Attempts to resolve issues with True Tone not being activated on one or more dis
 
 ## Credits
 
-The immplementation of True Tone control in Shifty was used as a reference.
+The implementation of True Tone control in [Shifty](https://github.com/thompsonate/Shifty) was used as a reference.
